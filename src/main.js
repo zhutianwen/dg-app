@@ -1,6 +1,37 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+// //0.1 引入Vuex
+ import Vuex from 'vuex';
+// //0.2 注册Vuex组件
+ Vue.use(Vuex)
+// //0.3 创建store
+ var store=new Vuex.Store({
+   state:{
+     cartCount:sessionStorage.getItem("cartCount")||0 //共享数据:购物车中商品的数量
+   },
+   mutations:{
+     //购物车中数量加1
+     increment(state){
+       state.cartCount++;
+     },
+     //显示购物车列表时
+     updateCount(state,count){
+       state.cartCount=count; 
+       sessionStorage.setItem("cartCount",count)
+     }
+   },
+   getters:{
+     //获取购物车中数量方法
+     optCartCount:function(state){
+       return state.cartCount;
+     }
+   }
+ })
+//0.9 将store对象添加Vue实例中成为一个属性 
+
+
+
 //1.引入mint-ui 样式文件
 import'mint-ui/lib/style.css'
 
@@ -64,5 +95,6 @@ Vue.filter("dateFilter",function(val){
 
 new Vue({
   router,
-  render: h => h(App)
+  render: h => h(App),
+ store
 }).$mount('#app')

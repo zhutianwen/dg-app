@@ -12,12 +12,20 @@
 			</router-link>
 	<router-link to="/shopCart" class="mui-tab-item" href="#tabbar-with-contact">
 		<span class="mui-icon mui-icon-extra mui-icon-extra-cart">
-        <span class="mui-badge">0</span></span>
+      
+        <span class="mui-badge">
+           {{$store.getters.optCartCount}}
+        </span></span>
 		   <span class="mui-tab-label">购物车</span>
 			</router-link>
 	<router-link to="/Login" class="mui-tab-item" href="#tabbar-with-map">
 		<span class="mui-icon mui-icon-person-filled"></span>
 		  <span class="mui-tab-label">登录</span>
+			</router-link>
+
+            <router-link to="/Logout" class="mui-tab-item" href="#tabbar-with-map">
+		<span class="mui-icon mui-icon-person-filled"></span>
+		  <span class="mui-tab-label">退出</span>
 			</router-link>
             
 </nav>

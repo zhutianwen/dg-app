@@ -49,6 +49,13 @@ export default {
                }else{
                    Toast("用户名或密码有误")
                }
+               //登录后立即更新
+                  var url="http://127.0.0.1:3000/cartlist";
+                   this.axios.get(url).then(result=>{
+                      var rows=result.data.data
+                       this.$store.commit("updateCount",rows.length)
+                   })
+
            })
            //4.失败 显示提示框
            //5.成功 跳转home 

@@ -86,7 +86,7 @@ export default {
             if(result.data.code==1){
               Toast("添加成功");
             }else{
-              Toast("添加失败");
+              Toast("请登录");
             } 
          })
       }      

@@ -62,8 +62,17 @@ export default {
         var url="http://127.0.0.1:3000/cartlist?uid=1";
         //2.发送ajax请求  
         this.axios.get(url).then(result=>{
+           //判断如果没有登录显示消息
+           if(result.data.code==-1){
+               Toast("请登录")
+               return;
+           }
+
            //1.接收服务器程序返回数据
-           var rows=result.data.data;
+           var rows=result.data.data;//购物车返回的数组
+           console.log(rows.length);
+           //修改全局购物车数量
+          this.$store.commit("updateCount",rows.length)
            //2.为每一个商品对象添加属性cb
            for(var item of rows){
                item.cb=false;

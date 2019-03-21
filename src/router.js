@@ -8,6 +8,7 @@ import NewsInfo from './components/home/NewsInfo.vue'
 import GoodInfo from './components/goods/GoodInfo.vue'
 import Login from './components/home/Login.vue'
 import shopCart from './components/home/shopCart.vue'
+import Logout from './components/home/Logout.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -19,6 +20,7 @@ export default new Router({
     {path:'/NewsInfo',component:NewsInfo},
     {path:'/GoodInfo',component:GoodInfo},
     {path:'/Login',component:Login},
-    {path:'/shopCart',component:shopCart}
+    {path:'/shopCart',component:shopCart},
+    {path:'/Logout',component:Logout}
   ]
 })
